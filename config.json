@@ -1,0 +1,8 @@
+{
+  "city": "Quixadá",
+  "secure_networks": [
+    "WIFI_DE_CASA",
+    "WIFI_DO_TRABALHO"
+  ],
+  "task_file": "/data/data/com.termux/files/home/task.txt"
+}
