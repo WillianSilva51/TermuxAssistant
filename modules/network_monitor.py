@@ -9,7 +9,7 @@ def run_wifi_monitor():
         if wifi['ssid'] == network:
             termux.Notification.notify(
                 title="Secure Network Connected",
-                content=f"You are connected to a secure network: {network['ssid']}"
+                content=f"You are connected to a secure network: {wifi['ssid']}"
             )
             return
         
