@@ -2,16 +2,17 @@ import argparse
 from modules import dashboard, command_voice, network_monitor
 
 def main():
-    parser = argparse.ArgumentParser(description='Assistant CLI Tool')
+    parser = argparse.ArgumentParser(description='Assistant CLI Tool', help='Manage your assistant modules.')
     parser.add_argument('--dashboard', action='store_true', help='Run the dashboard')
     parser.add_argument('--voice', action='store_true', help='Run the voice command interface')
     parser.add_argument('--wifi', action='store_true', help='Run the WiFi network monitor')
     
     args = parser.parse_args()
-
-# Nominatim e Open‑Meteo serão usadas como APIs para geolocalização e previsão do tempo, respectivamente.
-# Tenho que aprender a integrá-las no código usando requests
-
+    
+    if not any(vars(args).values()):
+        parser.print_help()
+        return
+    
     if args.dashboard:
         dashboard.run_dashboard()
     if args.voice:

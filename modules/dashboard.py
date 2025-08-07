@@ -75,5 +75,10 @@ def run_dashboard():
 
     print(f"{quote_data['q']} - {quote_data['a']}")
 
+    try:
+        termux.UI.toast(f'Dashboard for {city} - {time.strftime("%Y-%m-%d %H:%M:%S")}\n Temperature: {weather_info["temperature_2m"]}°C\n Humidity: {weather_info["relative_humidity_2m"]}%\n Is it day? {"Yes" if weather_info["is_day"] == 1 else "No"}\n Rain: {weather_info["rain"]} mm', duration='long')
+    except Exception as e:
+        logging.error(f"Showing toast notification: {e}")
+
 if __name__ == "__main__":
     run_dashboard()
