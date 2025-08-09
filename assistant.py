@@ -2,7 +2,7 @@ import argparse
 from modules import dashboard, command_voice, network_monitor
 
 def main():
-    parser = argparse.ArgumentParser(description='Assistant CLI Tool', help='Manage your assistant modules.')
+    parser = argparse.ArgumentParser(description='Assistant CLI Tool')
     parser.add_argument('--dashboard', action='store_true', help='Run the dashboard')
     parser.add_argument('--voice', action='store_true', help='Run the voice command interface')
     parser.add_argument('--wifi', action='store_true', help='Run the WiFi network monitor')

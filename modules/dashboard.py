@@ -8,13 +8,13 @@ logging.basicConfig(
 
 def run_dashboard():
     try:
-        city = termux.API.location()[1]
-        lat, lon = city['latitude'], city['longitude']
-       
-        city = requests.get(f'http://api.3geonames.org/{lat},{lon}.json', headers={'User-Agent': 'dashboardTermux'})
-        city.raise_for_status()
-       
-        city_data = city.json()
+        location = termux.API.location()
+        lat, lon = location[1]['latitude'], location[1]['longitude']
+
+        name_city = requests.get(f'http://api.3geonames.org/{lat},{lon}.json', headers={'User-Agent': 'dashboardTermux'})
+        name_city.raise_for_status()
+
+        city_data = name_city.json()
         city = city_data['nearest']['city']
 
     except Exception as e:
@@ -58,8 +58,12 @@ def run_dashboard():
     print('-' * 20)
 
     try:
+        print("Battery status:")
         battery = termux.API.battery()[1]
         print(f"Battery level: {battery['level']}%")
+        print(f"Status: {battery['status']}")
+        print(f"Cycles: {battery['cycles']}")
+        print("-" * 20)
 
     except Exception as e:
         logging.error(f"Getting battery status from Termux API: {e}")
@@ -76,7 +80,7 @@ def run_dashboard():
     print(f"{quote_data['q']} - {quote_data['a']}")
 
     try:
-        termux.UI.toast(f'Dashboard for {city} - {time.strftime("%Y-%m-%d %H:%M:%S")}\n Temperature: {weather_info["temperature_2m"]}°C\n Humidity: {weather_info["relative_humidity_2m"]}%\n Is it day? {"Yes" if weather_info["is_day"] == 1 else "No"}\n Rain: {weather_info["rain"]} mm', duration='long')
+        termux.UI.toast(f'Dashboard for {city} - {time.strftime("%Y-%m-%d %H:%M:%S")}\n Temperature: {weather_info["temperature_2m"]}°C\n Humidity: {weather_info["relative_humidity_2m"]}%\n Is it day? {"Yes" if weather_info["is_day"] == 1 else "No"}\n Rain: {weather_info["rain"]} mm')
     except Exception as e:
         logging.error(f"Showing toast notification: {e}")
 
