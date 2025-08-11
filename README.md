@@ -17,6 +17,9 @@ O Termux Assistant oferece os seguintes recursos:
   * **Comandos de Voz:** Permite que você adicione tarefas e lembretes usando a sua voz.
   * **Monitor de Rede Wi-Fi:** Verifica se você está conectado a uma rede Wi-Fi segura e o notifica.
 
+>[!IMPORTANT] 
+>No momento o único que funciona no PC é o Dashboard, os outros comandos só funcionam no Termux.
+
 ## 🚀 Começando
 
 Siga estas instruções para colocar o projeto em funcionamento no seu ambiente.

@@ -15,7 +15,7 @@ def run_dashboard():
         name_city.raise_for_status()
 
         city_data = name_city.json()
-        city = city_data['nearest']['city']
+        city = city_data['osmtags']['name']
 
     except Exception as e:
         logging.error(f"Getting location from Termux API: {e}")
