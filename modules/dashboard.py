@@ -58,16 +58,17 @@ def run_dashboard():
     print('-' * 20)
 
     try:
-        print("Battery status:")
         battery = termux.API.battery()[1]
+        print("Battery status:")
         print(f"Battery level: {battery['level']}%")
         print(f"Status: {battery['status']}")
-        print(f"Cycles: {battery['cycles']}")
+        print(f"Cycles: {battery['cycle']}")
         print("-" * 20)
 
     except Exception as e:
         logging.error(f"Getting battery status from Termux API: {e}")
 
+    print("Current weather:")
     print(f"Temperature: {weather_info['temperature_2m']}°C")
     print(f"Humidity: {weather_info['relative_humidity_2m']}%")
     print(f"Is it day? {'Yes' if weather_info['is_day'] == 1 else 'No'}")
