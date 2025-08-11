@@ -63,19 +63,46 @@ Se nenhum argumento for fornecido, a ajuda será impressa.
 
 ## 🐳 Usando com Docker
 
-Você também pode executar a aplicação usando o Docker.
+Você também pode executar a aplicação usando o Docker, o que simplifica a configuração do ambiente. A imagem oficial está disponível no Docker Hub.
 
-1.  Construa a imagem do Docker:
+### Executando a partir do Docker Hub
+
+Esta é a maneira mais fácil de começar.
+
+1.  **Puxe a imagem do Docker Hub:**
+
+    ```bash
+    docker pull williansilva51/termux_assistant
+    ```
+
+2.  **Execute o contêiner:**
+    Por padrão, o comando `--dashboard` será executado.
+
+    ```bash
+    docker run williansilva51/termux_assistant
+    ```
+
+    Você pode passar outros argumentos, como faria normalmente na linha de comando, para usar as outras funcionalidades:
+
+    ```bash
+    # Para usar o comando de voz
+    docker run williansilva51/termux_assistant --voice
+
+    # Para monitorar a rede Wi-Fi
+    docker run williansilva51/termux_assistant --wifi
+    ```
+
+### Construindo a Imagem Localmente (Opcional)
+
+Se preferir construir a imagem a partir do código-fonte:
+
+1.  **Construa a imagem do Docker:**
     ```bash
     docker build -t termux-assistant .
     ```
-2.  Execute o contêiner:
+2.  **Execute o contêiner:**
     ```bash
     docker run termux-assistant
-    ```
-    Por padrão, o comando `--dashboard` será executado. Você pode passar outros argumentos, como faria normalmente:
-    ```bash
-    docker run termux-assistant --voice
     ```
 
 ## ⚙️ Configuração
