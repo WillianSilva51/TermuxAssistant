@@ -15,11 +15,16 @@ def run_voice_command():
 
     for cmd in command.lower().split():
         if cmd in commands[:2]:
-            task_file = json.load(open('config.json', 'r'))
+            config = json.load(open('config.json', 'r'))
             print(f"Command recognized: {cmd}")
-            task_file['tasks'].append(command)
-            json.dump(task_file, open('config.json', 'w'))
-            termux.TTS.tts_speak("Task added.")
+            task_file_path = config['task_file']
+            try:
+                with open(task_file_path, 'a') as f:
+                    f.write(f"{command}\n")
+                termux.TTS.tts_speak("Task added.")
+            except Exception as e:
+                print(f"Error writing to task file: {e}")
+                termux.TTS.tts_speak("Error adding task.")
             return
         elif cmd in commands[2:4]:
             print(f"Command recognized: {cmd}")
@@ -30,7 +35,6 @@ def run_voice_command():
             return
 
     print("No valid command found.")
-
 
 if __name__ == "__main__":
     run_voice_command()
