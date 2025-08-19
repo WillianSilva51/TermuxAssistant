@@ -15,7 +15,8 @@ def run_voice_command():
 
     for cmd in command.lower().split():
         if cmd in commands[:2]:
-            config = json.load(open('config.json', 'r'))
+            with open('config.json', 'r') as f:
+                config = json.load(f)
             print(f"Command recognized: {cmd}")
             task_file_path = config['task_file']
             try:
