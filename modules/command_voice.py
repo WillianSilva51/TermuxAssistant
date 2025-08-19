@@ -23,7 +23,7 @@ def run_voice_command():
                 with open(task_file_path, 'a') as f:
                     f.write(f"{command}\n")
                 termux.TTS.tts_speak("Task added.")
-            except Exception as e:
+            except OSError as e:
                 print(f"Error writing to task file: {e}")
                 termux.TTS.tts_speak("Error adding task.")
             return
