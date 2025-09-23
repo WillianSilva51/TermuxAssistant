@@ -30,4 +30,12 @@
 **/benchmarks.sh
 **/lib
 **/*.log
+.git
+.vscode
+.devcontainer
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+dashboard.log
 LICENSE
