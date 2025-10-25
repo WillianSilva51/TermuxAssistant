@@ -1,5 +1,5 @@
 # 1. Define a imagem base
-ARG VARIANT=3.12-slim-bookworm
+ARG VARIANT=3.14.0-slim-trixie
 FROM docker.io/python:${VARIANT}
 
 # 2. Instala dependências do sistema primeiro
