@@ -10,14 +10,14 @@ Este é um script em Python que fornece um painel para exibir informações mete
 
 O Termux Assistant oferece os seguintes recursos:
 
-  * **Dashboard:** Exibe um painel com as seguintes informações:
-      * **Clima:** Temperatura, umidade, e se é dia ou noite na sua cidade.
+* **Dashboard:** Exibe um painel com as seguintes informações:
+      ***Clima:** Temperatura, umidade, e se é dia ou noite na sua cidade.
       * **Bateria:** Status, nível e ciclos da bateria do seu dispositivo.
       * **Frase do Dia:** Uma citação inspiradora para começar bem o seu dia.
   * **Comandos de Voz:** Permite que você adicione tarefas e lembretes usando a sua voz.
   * **Monitor de Rede Wi-Fi:** Verifica se você está conectado a uma rede Wi-Fi segura e o notifica.
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >No momento o único que funciona no PC é o Dashboard, os outros comandos só funcionam no Termux.
 
 ## 🚀 Começando
@@ -26,21 +26,26 @@ Siga estas instruções para colocar o projeto em funcionamento no seu ambiente.
 
 ### Pré-requisitos
 
-  * Termux
+* Termux
   * Python
   * termux-api
 
 ### Instalação
 
-1.  Clone o repositório:
+1. Clone o repositório:
+
     ```bash
     git clone https://github.com/williansilva51/termuxassistant.git
     ```
-2.  Entre no diretório do projeto:
+
+2. Entre no diretório do projeto:
+
     ```bash
     cd termuxassistant
     ```
-3.  Instale as dependências:
+
+3. Instale as dependências:
+
     ```bash
     pip install -r requirements.txt
     ```
@@ -49,15 +54,20 @@ Siga estas instruções para colocar o projeto em funcionamento no seu ambiente.
 
 O script principal é o `assistant.py`. Você pode usá-lo com as seguintes opções:
 
-  * **Exibir o Dashboard:**
+* **Exibir o Dashboard:**
+
     ```bash
     python assistant.py --dashboard
     ```
-  * **Iniciar a interface de comando de voz:**
+
+* **Iniciar a interface de comando de voz:**
+
     ```bash
     python assistant.py --voice
     ```
-  * **Executar o monitor de rede Wi-Fi:**
+
+* **Executar o monitor de rede Wi-Fi:**
+
     ```bash
     python assistant.py --wifi
     ```
@@ -72,13 +82,13 @@ Você também pode executar a aplicação usando o Docker, o que simplifica a co
 
 Esta é a maneira mais fácil de começar.
 
-1.  **Puxe a imagem do Docker Hub:**
+1. **Puxe a imagem do Docker Hub:**
 
     ```bash
     docker pull williansilva51/termux_assistant
     ```
 
-2.  **Execute o contêiner:**
+2. **Execute o contêiner:**
     Por padrão, o comando `--dashboard` será executado.
 
     ```bash
@@ -99,11 +109,14 @@ Esta é a maneira mais fácil de começar.
 
 Se preferir construir a imagem a partir do código-fonte:
 
-1.  **Construa a imagem do Docker:**
+1. **Construa a imagem do Docker:**
+
     ```bash
     docker build -t termux-assistant .
     ```
-2.  **Execute o contêiner:**
+
+2. **Execute o contêiner:**
+
     ```bash
     docker run termux-assistant
     ```
@@ -123,9 +136,9 @@ Você pode personalizar as configurações do assistente editando o arquivo `con
 }
 ```
 
-  * `city`: A cidade padrão a ser usada se a localização não puder ser determinada.
-  * `secure_networks`: Uma lista de nomes de redes Wi-Fi (SSIDs) que são consideradas seguras.
-  * `task_file`: O caminho para o arquivo onde as tarefas serão salvas.
+* `city`: A cidade padrão a ser usada se a localização não puder ser determinada.
+* `secure_networks`: Uma lista de nomes de redes Wi-Fi (SSIDs) que são consideradas seguras.
+* `task_file`: O caminho para o arquivo onde as tarefas serão salvas.
 
 ## 📄 Licença
 
