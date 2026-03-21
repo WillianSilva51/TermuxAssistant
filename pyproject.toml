@@ -1,0 +1,11 @@
+[project]
+name = "termux"
+version = "1.0.0"
+description = "Um assistente pessoal de linha de comando para o Termux, que oferece um painel com informações úteis, comandos de voz e monitoramento de rede."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pathlib>=1.0.1",
+    "requests>=2.32.4",
+    "termux-api>=1.2.5.3",
+]
