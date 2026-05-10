@@ -4,4 +4,4 @@ idna==3.11
 pathlib==1.0.1
 requests==2.33.1
 termux-api==1.2.5.3
-urllib3==2.6.3
+urllib3==2.7.0
